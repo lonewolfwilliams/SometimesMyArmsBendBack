@@ -31,12 +31,5 @@ package model
 			
 			return m_narrativeSequence[m_index];
 		}
-		
-		/*
-		public static function GetHint():String
-		{
-			
-		}
-		*/
 	}
 }

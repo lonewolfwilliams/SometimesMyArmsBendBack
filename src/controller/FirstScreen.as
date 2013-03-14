@@ -1,6 +1,5 @@
 package controller 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import model.DisplayModel;
 	import org.robotlegs.mvcs.Command;
 	

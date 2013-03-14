@@ -13,6 +13,7 @@ package view.screens
 	import view.buttons.PlayButton;
 	import view.buttons.RecordButton;
 	import view.characterInput.CharacterInput;
+	import view.clues.ClueViewComponent;
 	import view.glitch.GlitchViewComponent;
 	import view.microphone.MicrophonePermissionsDialogue;
 	import view.visualisers.AudioVisualiser;
@@ -90,6 +91,9 @@ package view.screens
 		
 		private function addCharacterEntryDecorationsTo(screen:Screen):void 
 		{
+			var clueVC:ClueViewComponent = new ClueViewComponent();
+			screen.addChild(clueVC);
+			
 			var input:CharacterInput = new CharacterInput(200, 200);
 			
 			screen.addChild(input);
@@ -100,6 +104,9 @@ package view.screens
 		
 		private function addPlayBackDecorationsTo(screen:Screen):void 
 		{
+			var clueVC:ClueViewComponent = new ClueViewComponent();
+			screen.addChild(clueVC);
+			
 			var _playBackButton:PlayBackButton = new PlayBackButton();
 			
 			screen.addChild(_playBackButton);
@@ -110,6 +117,9 @@ package view.screens
 		
 		private function addPlayDecorationsTo(screen:Screen):void 
 		{
+			var clueVC:ClueViewComponent = new ClueViewComponent();
+			screen.addChild(clueVC);
+			
 			var _playButton:PlayButton = new PlayButton();
 			
 			screen.addChild(_playButton);
@@ -120,6 +130,9 @@ package view.screens
 		
 		private function addRecordingDecorationsTo(screen:Screen):void 
 		{
+			var clueVC:ClueViewComponent = new ClueViewComponent();
+			screen.addChild(clueVC);
+			
 			var _recordButton:RecordButton = new RecordButton();
 			screen.addChild(_recordButton);
 			_recordButton.x = Constants.APP_WIDTH * 0.5;
@@ -150,7 +163,6 @@ package view.screens
 		{
 			screenToDecorate.addChild(new GlitchViewComponent());
 		}
-		
 	}
 }
 internal class SingletonBlocker {}

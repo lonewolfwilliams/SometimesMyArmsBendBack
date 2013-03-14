@@ -1,6 +1,5 @@
 package view.characterInput 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.display.Graphics;
 	import flash.display.Sprite;
 	import flash.events.Event;

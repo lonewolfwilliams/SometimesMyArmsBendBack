@@ -1,6 +1,5 @@
 package view 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.display.SpreadMethod;
 	import flash.display.Sprite;
 	import model.vo.ScreenEnum;

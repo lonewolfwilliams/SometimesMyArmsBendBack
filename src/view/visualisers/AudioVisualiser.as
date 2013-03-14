@@ -28,7 +28,7 @@ package view.visualisers
 			
 			var gfx:Graphics = this.graphics;
 			gfx.clear();
-			gfx.lineStyle(2, 0xFF0000, 1);
+			gfx.lineStyle(1, 0xFF0000, 1);
 			
 			//magnitudes are in DB!
 			var startX:Number;

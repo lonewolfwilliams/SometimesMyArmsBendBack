@@ -1,6 +1,6 @@
 package 
 {
-	import com.demonsters.debugger.MonsterDebugger;
+	import flash.display.Graphics;
 	import flash.display.Sprite;
 	import flash.display.StageDisplayState;
 	import flash.events.Event;
@@ -29,7 +29,6 @@ package
 			
 			stage.displayState = StageDisplayState.FULL_SCREEN;
 			
-			MonsterDebugger.initialize(this);
 			trace("Sometimes My Arms Bend Back v0.1");
 			
 			context = new AppContext(this);

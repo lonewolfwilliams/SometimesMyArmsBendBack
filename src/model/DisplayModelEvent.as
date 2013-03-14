@@ -1,6 +1,5 @@
 package model 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.events.Event;
 	import model.vo.ScreenEnum;
 	

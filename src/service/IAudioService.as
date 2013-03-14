@@ -13,7 +13,10 @@ package service
 		
 		function playForward(fromBuffer:ByteArray):void;	
 		function playBackward(fromBuffer:ByteArray):void;
-		function stopPlaying():void;
+		function stopFilePlaying():void;
+		
+		function playToneAt(frequencyInHZ:int, amplitude:Number):void;
+		function stopTonePlaying():void;
 		
 		function get internalRecordBuffer():ByteArray;
 	}

@@ -16,7 +16,7 @@ package view.glitch
 	{
 		private var m_timer:Timer;		
 		private var m_glitch:Glitchmap;
-		private var i:int = 0;
+		private var m_random_seed:int = 0;
 		
 		[Embed(source = "../../../embedded/imagen-011.jpg", mimeType = "application/octet-stream")]
 		private var ImageOne:Class;
@@ -32,6 +32,8 @@ package view.glitch
 		
 		public function GlitchViewComponent() 
 		{
+			m_random_seed = Math.floor(Math.random() * 1000);
+			
 			var imageData:Array = [new ImageOne(), new ImageTwo(), new ImageThree(), new ImageFour()];
 			var randomIndex:int = Math.round(Math.random() * 3);
 			
@@ -60,9 +62,9 @@ package view.glitch
 		{
 			m_glitch.glitchiness = 0.03;
 			m_glitch.maxIterations = 400;
-			if (Math.random() > 0.9)
+			if (Math.random() > 0.8)
 			{
-				m_glitch.seed = i++;
+				m_glitch.seed = m_random_seed++ % 1000;
 			}
 		}
 		

@@ -1,8 +1,8 @@
 package view 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import model.AudioBufferEvent;
 	import model.DisplayModelEvent;
+	import model.vo.ScreenEnum;
 	import org.robotlegs.mvcs.Mediator;
 	import service.AudioServiceEvent;
 	import view.characterInput.CharacterInputEvent;
@@ -16,12 +16,6 @@ package view
 	{
 		[Inject]
 		public var _view:MainView;
-		
-		public function MainViewMediator() 
-		{
-			super();
-			
-		}
 		
 		override public function onRegister():void 
 		{
@@ -85,15 +79,11 @@ package view
 		
 		private function handlePlaybackCompleted(e:AudioServiceEvent):void 
 		{
-			trace("playback completed");
-			
 			dispatch(new MainViewEvent(MainViewEvent.SCREEN_COMPLETED));
 		}
 		
 		private function handleDisplayUpdated(e:DisplayModelEvent):void 
 		{
-			trace("display updated");
-			
 			_view.displayScreen(e.toScreen);
 		}
 		

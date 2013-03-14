@@ -1,6 +1,5 @@
 package service 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.events.Event;
 	import flash.events.SampleDataEvent;
 	import flash.events.TimerEvent;
@@ -49,6 +48,15 @@ package service
 
 		private var m_writePos:uint = 0;            // Position to write new audio from mic
 		private var m_buf:Vector.<Number> = null; // Buffer for mic audio
+		
+		//------------------------------------------------------------------------------------------------
+		
+		//------------------------------------------------------------------------------------------------
+		//sine wave generator
+		//------------------------------------------------------------------------------------------------
+		
+		private var m_toneFrequency:Number = 12000;
+		private var m_toneAmplitude:Number = 0.1;
 		
 		//------------------------------------------------------------------------------------------------
 		
@@ -178,14 +186,42 @@ package service
 			api.play();
 		}
 		
-		public function stopPlaying():void 
+		public function stopFilePlaying():void 
 		{
 			trace("stopping playback");
 			
-			dispatch(new AudioServiceEvent(AudioServiceEvent.PLAYBACK_COMPLETE));
-			
-			//api.close();
 			api.removeEventListener(SampleDataEvent.SAMPLE_DATA, handleSampleData);
+			dispatch(new AudioServiceEvent(AudioServiceEvent.PLAYBACK_COMPLETE));
+			//api.close();
+		}
+		public function stopTonePlaying():void 
+		{
+			trace("stopping tone");
+			
+			api.removeEventListener(SampleDataEvent.SAMPLE_DATA, generateSampleData);
+			//api.close();
+		}
+		
+		public function playToneAt(frequencyInHZ:int, amplitude:Number):void 
+		{
+			m_toneFrequency = frequencyInHZ;
+			m_toneAmplitude = amplitude;
+			api.addEventListener(SampleDataEvent.SAMPLE_DATA, generateSampleData);
+			api.play();
+		}
+		
+		/* INTERFACE service.IAudioService */
+		
+		private function generateSampleData(event:SampleDataEvent):void 
+		{
+			//from adobe docs
+			for ( var c:int = 0; c < BLOCK_SIZE; c++ ) 
+			{	
+				var phase:Number = Number(c + event.position) / 44100 * Math.PI * 2;
+				
+				event.data.writeFloat(Math.sin(phase * m_toneFrequency) * m_toneAmplitude);
+				event.data.writeFloat(Math.sin(phase * m_toneFrequency) * m_toneAmplitude);
+			}
 		}
 		
 		private function handleSampleData(e:SampleDataEvent):void 
@@ -255,7 +291,7 @@ package service
 			
 			if (isError)
 			{
-				this.stopPlaying();
+				this.stopFilePlaying();
 			}
 		}
 		

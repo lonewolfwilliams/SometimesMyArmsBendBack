@@ -1,6 +1,5 @@
 package view.characterInput 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import org.robotlegs.mvcs.Mediator;
 	
 	/**

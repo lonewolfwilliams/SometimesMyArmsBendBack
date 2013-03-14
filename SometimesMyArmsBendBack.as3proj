@@ -7,7 +7,7 @@
     <movie path="bin\SometimesMyArmsBendBack.swf" />
     <movie fps="30" />
     <movie width="1280" />
-    <movie height="1024" />
+    <movie height="800" />
     <movie version="10" />
     <movie minorVersion="0" />
     <movie platform="Flash Player" />
@@ -51,8 +51,8 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\robotlegs-framework-v1.4.0.swc" />
-    <element path="lib\MonsterDebugger.swc" />
     <element path="lib\as3ds.swc" />
+    <element path="lib\greensock.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

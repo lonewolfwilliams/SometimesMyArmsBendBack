@@ -15,7 +15,7 @@ package model
 		private var currentScreen:SListIterator;
 		private var preventRetrigger:Boolean = false;
 		
-		public function DisplayModel() 
+		public function DisplayModel():void
 		{
 			super();
 			
@@ -41,8 +41,7 @@ package model
 		
 		public function nextScreen():void 
 		{
-			
-			if (Math.random() > 0.7 && false == preventRetrigger)
+			if (Math.random() < Constants.GLITCH_PROBABILITY && false == preventRetrigger)
 			{
 				dispatch(new DisplayModelEvent(DisplayModelEvent.DISPLAY_UPDATED, new ScreenEnum(ScreenEnum.GLITCH_SCREEN)));
 				preventRetrigger = true;
@@ -70,7 +69,7 @@ package model
 			dispatch(new DisplayModelEvent(DisplayModelEvent.DISPLAY_UPDATED, currentScreen.node.data));
 		}
 		
-		public function Screen():void 
+		public function secondScreen():void 
 		{
 			currentScreen.start();
 			currentScreen.next();

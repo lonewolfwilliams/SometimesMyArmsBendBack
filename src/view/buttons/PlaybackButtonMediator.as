@@ -1,6 +1,5 @@
 package view.buttons 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.events.MouseEvent;
 	import org.robotlegs.mvcs.Mediator;
 	

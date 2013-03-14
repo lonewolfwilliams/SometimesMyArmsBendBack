@@ -1,6 +1,5 @@
 package model 
 {
-	import com.demonsters.debugger.MonsterDebugger;
 	import flash.media.Sound;
 	import flash.utils.ByteArray;
 	import org.robotlegs.mvcs.Actor;

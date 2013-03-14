@@ -6,10 +6,14 @@ package
 	import controller.Play;
 	import controller.PlayBack;
 	import controller.RecordMacro;
+	import controller.ReleaseClue;
+	import controller.UpdateSoundtrack;
 	import flash.display.DisplayObjectContainer;
 	import model.AudioBuffer;
 	import model.AudioLibrary;
+	import model.ClueModel;
 	import model.DisplayModel;
+	import model.DisplayModelEvent;
 	import org.robotlegs.mvcs.Context;
 	import service.IAudioService;
 	import service.SimpleAudioService;
@@ -22,6 +26,9 @@ package
 	import view.buttons.RecordButtonMediator;
 	import view.characterInput.CharacterInput;
 	import view.characterInput.CharacterInputMediator;
+	import view.clues.ClueEvent;
+	import view.clues.ClueViewComponent;
+	import view.clues.ClueViewComponentMediator;
 	import view.glitch.GlitchViewComponent;
 	import view.glitch.GlitchViewComponentMediator;
 	import view.MainView;
@@ -64,12 +71,20 @@ package
 			mediatorMap.mapView(CharacterInput,					CharacterInputMediator);
 			mediatorMap.mapView(AudioVisualiser, 				AudioVisualiserMediator);
 			mediatorMap.mapView(GlitchViewComponent,			GlitchViewComponentMediator);
+			mediatorMap.mapView(ClueViewComponent,				ClueViewComponentMediator);
 			
 			injector.mapSingleton(DisplayModel);
 			
-			commandMap.mapEvent(MainViewEvent.SCREEN_COMPLETED, NextScreen);
-			commandMap.mapEvent(MainViewEvent.VIEW_INITIALISED, FirstScreen);
-			commandMap.mapEvent(MainViewEvent.SCREEN_FAILED, 	FailMacro);
+			var clueModelInstance:ClueModel = injector.instantiate(ClueModel);
+			injector.mapValue(ClueModel, clueModelInstance);
+			clueModelInstance.initialise();
+			
+			commandMap.mapEvent(DisplayModelEvent.DISPLAY_UPDATED, 	UpdateSoundtrack, DisplayModelEvent);
+			commandMap.mapEvent(MainViewEvent.SCREEN_COMPLETED, 	NextScreen);
+			commandMap.mapEvent(MainViewEvent.VIEW_INITIALISED, 	FirstScreen);
+			commandMap.mapEvent(MainViewEvent.SCREEN_FAILED, 		FailMacro);
+			
+			commandMap.mapEvent(ClueEvent.CLUE_REQUESTED, ReleaseClue);
 			
 			mediatorMap.mapView(MainView, MainViewMediator);
 			
