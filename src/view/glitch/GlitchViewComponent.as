@@ -30,12 +30,15 @@ package view.glitch
 		[Embed(source = "../../../embedded/sd533810.jpg", mimeType = "application/octet-stream")] 
 		private var ImageFour:Class;
 		
+		[Embed(source = "../../../embedded/IMG_1030.JPG", mimeType = "application/octet-stream")] 
+		private var ImageFive:Class;
+		
 		public function GlitchViewComponent() 
 		{
 			m_random_seed = Math.floor(Math.random() * 1000);
 			
-			var imageData:Array = [new ImageOne(), new ImageTwo(), new ImageThree(), new ImageFour()];
-			var randomIndex:int = Math.round(Math.random() * 3);
+			var imageData:Array = [new ImageOne(), new ImageTwo(), new ImageThree(), new ImageFour(), new ImageFive()];
+			var randomIndex:int = Math.round(Math.random() * 4);
 			
 			m_glitch = Glitchmap.CreateGlitch(imageData[randomIndex] as ByteArray);
 			addChild(m_glitch);
@@ -43,7 +46,7 @@ package view.glitch
 			m_glitch.width = Constants.APP_WIDTH;
 			m_glitch.height = Constants.APP_HEIGHT;
 			
-			m_timer = new Timer(500, 1);
+			m_timer = new Timer(Constants.GLITCH_DURATION_MS, 1);
 			m_timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimerComplete, false, 0, true);
 			m_timer.start();
 			
@@ -62,7 +65,7 @@ package view.glitch
 		{
 			m_glitch.glitchiness = 0.03;
 			m_glitch.maxIterations = 400;
-			if (Math.random() > 0.8)
+			if (Math.random() > Constants.GLITCHINESS)
 			{
 				m_glitch.seed = m_random_seed++ % 1000;
 			}

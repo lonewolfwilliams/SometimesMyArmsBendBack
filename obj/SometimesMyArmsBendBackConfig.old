@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'14/03/2013'</value>
+      <value>'15/03/2013'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,17 +32,17 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\Public\Documents\prototypes\SometimesMyArmsBendBack\src</path-element>
+      <path-element>C:\Users\User\Documents\SometimesMyArmsBendBack\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\Public\Documents\prototypes\SometimesMyArmsBendBack\lib\robotlegs-framework-v1.4.0.swc</path-element>
-      <path-element>C:\Users\Public\Documents\prototypes\SometimesMyArmsBendBack\lib\as3ds.swc</path-element>
-      <path-element>C:\Users\Public\Documents\prototypes\SometimesMyArmsBendBack\lib\greensock.swc</path-element>
+      <path-element>C:\Users\User\Documents\SometimesMyArmsBendBack\lib\robotlegs-framework-v1.4.0.swc</path-element>
+      <path-element>C:\Users\User\Documents\SometimesMyArmsBendBack\lib\as3ds.swc</path-element>
+      <path-element>C:\Users\User\Documents\SometimesMyArmsBendBack\lib\greensock.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Public\Documents\prototypes\SometimesMyArmsBendBack\src\Main.as</path-element>
+    <path-element>C:\Users\User\Documents\SometimesMyArmsBendBack\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#000000</default-background-color>
   <default-frame-rate>30</default-frame-rate>

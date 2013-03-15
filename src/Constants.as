@@ -9,7 +9,10 @@ package
 		public static const CHARACTER_INPUT_TIMEOUT_MS:uint = 2000;
 		public static const RECORD_DURATION_MS:uint = 5000; 
 		
-		public static const GLITCH_PROBABILITY:Number = 0.1;
+		public static const GLITCH_DURATION_MS:int = 1000;
+		public static const GLITCHINESS:Number = 0.8;
+		
+		public static const GLITCH_PROBABILITY:Number = 0.4;
 		public static const DISTURBING_TONE_BASE_FREQ:int = 10000;
 		public static const DISTURBING_TONE_FREQ_RANGE:int = 2000;
 		

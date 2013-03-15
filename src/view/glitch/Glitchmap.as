@@ -13,6 +13,7 @@ package view.glitch
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
+	import flash.display.Graphics;
 	import flash.display.Loader;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -115,9 +116,21 @@ package view.glitch
 				_output.bitmapData = _bytesLoader.content['bitmapData'];
 			}
 			
+			/*
 			_output.width = _width;
 			_output.height = _height;
-		
+			*/
+			
+			var hScale:Number = _width / _output.width;
+			var vScale:Number = _height / _output.height;
+			var scale:Number = Math.abs(hScale) > Math.abs(vScale) ? hScale : vScale;
+			
+			_output.width *= scale;
+			_output.height *= scale;
+			
+			_output.x = (_width - _output.width) * 0.5;
+			_output.y = (_height - _output.height) * 0.5;
+			
 			_bytesLoader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onBytesLoadError);
 			_bytesLoader.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onBytesLoadError);
 			dispatchEvent(new Event(Event.CHANGE));
